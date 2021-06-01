@@ -32,6 +32,7 @@ const resolvers = {
 
 const server = new ApolloServer({ typeDefs, resolvers })
 
+// 默认打开的端口是4000
 server.listen().then(({ url }) => {
   console.log(`Server ready at ${url}`)
 })
