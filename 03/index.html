@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <script src='../node_modules/axios/dist/axios.js'></script>
+  <script>
+    // 获取文章列表
+    // axios({
+    //   method: 'POST',
+    //   url: 'http://localhost:4000/graphql',
+    //   data: {
+    //     query: `
+    //       query getArticles{
+    //         articles {
+    //           title
+    //         }
+    //       }
+    //     `
+    //   }
+    // }).then(res => {
+    //   console.log(res.data)
+    // })
+
+    // 获取指定id的文章
+    // const id = 1
+    // axios({
+    //   method: 'POST',
+    //   url: 'http://localhost:4000/graphql',
+    //   data: {
+    //     query: `
+    //       query getArticleById {
+    //         article(id: ${id}) {
+    //           id
+    //           title
+    //         }
+    //       }
+    //     `
+    //   }
+    // }).then(res => {
+    //   console.log(res.data)
+    // })
+
+    // axios({
+    //   method: 'POST',
+    //   url: 'http://localhost:4000/graphql',
+    //   data: {
+    //     query: `
+    //       query getArticleById($id: ID!) {
+    //         article(id: $id) {
+    //           id
+    //           title
+    //         }
+    //       }
+    //     `,
+    //     variables: {
+    //       id: 2
+    //     }
+    //   }
+    // }).then(res => {
+    //   console.log(res.data)
+    // })
+
+    // 创建文章
+    // axios({
+    //   method: 'POST',
+    //   url: 'http://localhost:4000/graphql',
+    //   data: {
+    //     query: `
+    //        mutation createArticle($article: CreateArticleInput){
+    //          createArticle(article: $article) {
+    //            id
+    //            title
+    //            body
+    //          }
+    //        }
+    //     `,
+    //     variables:{
+    //       article: {
+    //         title: 'new title',
+    //         body: 'new body'
+    //       }
+    //     }
+    //   }
+    // }).then(res => {
+    //   console.log(res.data)
+    // })
+
+    // 更新操作
+    // axios({
+    //   method: 'POST',
+    //   url: 'http://localhost:4000/graphql',
+    //   data: {
+    //     query: `
+    //        mutation updateArticle($id: ID!,$article: UpdateArticleInput){
+    //          updateArticle(id: $id,article: $article) {
+    //            id
+    //            title
+    //            body
+    //          }
+    //        }
+    //     `,
+    //     variables: {
+    //       id: 1,
+    //       article: {
+    //         title: 'new title',
+    //         body: 'new body'
+    //       }
+    //     }
+    //   }
+    // }).then(res => {
+    //   console.log(res.data)
+    // })
+
+    // 删除操作
+    axios({
+      method: 'POST',
+      url: 'http://localhost:4000/graphql',
+      data: {
+        query: `
+          mutation deleteArticle($id: ID!) {
+            deleteArticle(id: $id) {
+              success
+            }
+          }
+        `,
+        variables: {
+          id: 1
+        }
+      }
+    }).then(res => {
+      console.log(res)
+    })
+
+  </script>
+</body>
+
+</html>
