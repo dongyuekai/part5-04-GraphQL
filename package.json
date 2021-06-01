@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/dongyuekai/part5-03-GraphQL#readme",
   "dependencies": {
+    "apollo-datasource-mongodb": "^0.4.1",
     "apollo-server": "^2.25.0",
     "apollo-server-express": "^2.25.0",
     "axios": "^0.21.1",
@@ -25,6 +26,7 @@
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.5.0",
+    "mongoose": "^5.12.12",
     "uuid": "^8.3.2"
   }
 }
