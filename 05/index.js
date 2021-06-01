@@ -10,9 +10,15 @@ const typeDefs = gql`
     title: String
     author: String
   }
-
+  type User {
+    id: ID!
+    name: String
+  }
   type Query {
     books: [Book]
+    numberSix: Int!
+    numberSeven: Int!
+    user(id: ID!, foo: String): User
   }
 `
 const books = [
@@ -26,11 +32,36 @@ const books = [
   }
 ]
 
+const users = [
+  {
+    id: '1',
+    name: 'Elizabeth Bennet'
+  },
+  {
+    id: '2',
+    name: 'Fitzwilliam Darcy'
+  }
+]
+
 // 2 定义resolver
 const resolvers = {
   // 所有 Query 的入口
   Query: {
-    books: () => books
+    books: () => books,
+    numberSix() {
+      return 6
+    },
+    numberSeven() {
+      return 7
+    },
+    // args: 客户端的查询参数
+    user(parent, args, context, info) {
+      // console.log('parent--', parent)
+      // console.log('args--', args)
+      // console.log('context--', context)
+      // console.log('info--', info)
+      return users.find(user => user.id === args.id)
+    }
   }
 }
 
