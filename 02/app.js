@@ -11,9 +11,30 @@ app.use(cors())
 
 // 1 使用 GraphQL schema 语法构建一个 schema
 const schema = buildSchema(`
+  type Score {
+    name: String
+    score: Float
+  }
+  type User {
+    name: String
+    age: Int
+    hobbies: [String]
+    scores: [Score]
+  }
+  type Article {
+    title: String
+    body: String
+    author: User
+  }
   type Query {
-    foo: String
+    # xx! 表示不能为空类型
+    foo: String!  
     count: Int
+    salary: Float
+    isGood: Boolean
+    userId: ID
+    user: User
+    article: Article
   }
 `)
 // 2 定义 schema 的 resolver
@@ -22,7 +43,37 @@ const rootValue = {
     return 'bar'
   },
   count() {
-    return 123
+    return '12'
+  },
+  salary() {
+    return 123.123
+  },
+  isGood() {
+    return true
+  },
+  userId() {
+    return '123'
+  },
+  user() {
+    return {
+      name: 'dyk',
+      age: 33,
+      hobbies: ['吃饭', '篮球'],
+      scores: [
+        { name: 'score1', score: 89.8 },
+        { name: 'score2', score: 19.8 },
+      ]
+    }
+  },
+  article() {
+    return {
+      title: 'title1',
+      body: 'body1',
+      author: {
+        name: 'name1',
+        age: 333
+      }
+    }
   }
 }
 // 3 挂载graphql中间件
