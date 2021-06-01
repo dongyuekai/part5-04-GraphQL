@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+  <script src='../node_modules/axios/dist/axios.js'></script>
+  <script>
+    axios({
+      method: 'POST',
+      url: 'http://localhost:4000/graphql',
+      data: {
+        query: '{foo,count}'
+      }
+    }).then(res => {
+      console.log(res)
+    })
+  </script>
+</body>
+
+</html>
