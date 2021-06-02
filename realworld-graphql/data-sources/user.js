@@ -22,6 +22,7 @@ class Users extends MongoDataSource {
     return this.findOneById(userId)
   }
 
+  // 更新当前登录用户的值
   updateUser (userId, data) {
     return this.model.findOneAndUpdate(
       { _id: userId }, // 条件
