@@ -4,6 +4,7 @@ const { jwtSecret } = require('../config/config.default')
 const jwt = require('../util/jwt')
 
 class AuthDirective extends SchemaDirectiveVisitor {
+  // 定义字段定义
   visitFieldDefinition(field) {
     // 把字段本身的 resolve 函数备份一下
     const { resolve = defaultFieldResolver } = field

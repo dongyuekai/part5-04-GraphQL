@@ -2,6 +2,7 @@ const { SchemaDirectiveVisitor } = require('apollo-server-express')
 const { defaultFieldResolver } = require('graphql')
 
 class UpperCaseDirective extends SchemaDirectiveVisitor {
+  // 定义字段定义
   visitFieldDefinition(field) {
     // 把字段本身的 resolve 函数备份一下
     const { resolve = defaultFieldResolver } = field

@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server-express')
 
 const typeDefs = gql`
+
+  # 定义在字段上使用
   directive @upper on FIELD_DEFINITION
   directive @auth on FIELD_DEFINITION
 
