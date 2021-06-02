@@ -7,7 +7,17 @@ const app = express()
 
 const server = new ApolloServer({
   schema,
-  dataSources
+  dataSources,
+  // 所有的 GraphQL 查询都会经过这里
+  context ({ req }) {
+    const token = req.headers['authorization']
+    return {
+      token
+    }
+  },
+  // schemaDirectives: {
+  //   // 自定义指令
+  // }
 })
 
 // 将 Apollo-server 和 express 集合到一起

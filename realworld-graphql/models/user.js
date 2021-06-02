@@ -27,4 +27,5 @@ const userSchema = new mongoose.Schema({
     default: null
   }
 })
+
 module.exports = userSchema

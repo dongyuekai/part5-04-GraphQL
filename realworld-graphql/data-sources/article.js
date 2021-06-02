@@ -1,17 +1,17 @@
 const { MongoDataSource } = require('apollo-datasource-mongodb')
 
 class Articles extends MongoDataSource {
-  createArticle(data) {
+  createArticle (data) {
     const article = new this.model(data)
     // article.populate('author').execPopulate()
     return article.save()
   }
 
-  getArticles(options) {
+  getArticles (options) {
     return this.model.find().skip(options.offset).limit(options.limit)
   }
 
-  getCount() {
+  getCount () {
     return this.model.countDocuments()
   }
 }
